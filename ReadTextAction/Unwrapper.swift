@@ -8,7 +8,7 @@
 
 import Foundation
 
-func shouldJoin(_ first: String, _ second: String) -> Bool {    
+func shouldJoin(_ first: String, _ second: String) -> Bool {
     if first == "" || second == "" {
         return false
     }

@@ -15,6 +15,8 @@ import Kanna
 class ActionViewController: UIViewController {
 
     @IBOutlet var textView: UITextView!
+    @IBOutlet var backgroundView: UIView!
+    @IBOutlet var navBar: UINavigationBar!
     
 
     override func viewDidLoad() {
@@ -91,6 +93,25 @@ class ActionViewController: UIViewController {
         })
     }
 
+    let navDark = UIColor.black
+    let navLight = UIColor(red: (247/255), green: (247/255), blue: (247/255), alpha: 1)
+    var darkMode = false
+    @IBAction func invert(_ sender: Any) {
+        darkMode = !darkMode
+        DispatchQueue.main.async(execute: {
+            if self.darkMode {
+                self.textView.textColor = UIColor.lightText
+                self.textView.backgroundColor = UIColor.black
+                self.backgroundView.backgroundColor = UIColor.black
+                self.navBar.barTintColor = self.navDark
+            } else {
+                self.textView.textColor = UIColor.darkText
+                self.textView.backgroundColor = UIColor.white
+                self.backgroundView.backgroundColor = UIColor.white
+                self.navBar.barTintColor = self.navLight
+            }
+        })
+    }
     
     
     override func didReceiveMemoryWarning() {

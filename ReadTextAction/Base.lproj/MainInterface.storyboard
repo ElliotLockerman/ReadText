@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,11 +26,16 @@
                                                 <action selector="done" destination="ObA-dk-sSI" id="Qdu-qn-U6V"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Invert" id="2QI-EG-wXG">
+                                            <connections>
+                                                <action selector="invert:" destination="ObA-dk-sSI" id="EQ2-Tb-cGa"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8NU-n6-fmU">
-                                <rect key="frame" x="16" y="80" width="288" height="428"/>
+                                <rect key="frame" x="16" y="64" width="288" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -42,8 +47,8 @@
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="leading" secondItem="VVe-Uw-JpX" secondAttribute="leading" id="HxO-8t-aoh"/>
                             <constraint firstItem="VVe-Uw-JpX" firstAttribute="trailing" secondItem="8NU-n6-fmU" secondAttribute="trailing" constant="16" id="ShP-8A-jxf"/>
                             <constraint firstItem="8NU-n6-fmU" firstAttribute="leading" secondItem="VVe-Uw-JpX" secondAttribute="leading" constant="16" id="YLi-ai-SyH"/>
-                            <constraint firstItem="8NU-n6-fmU" firstAttribute="top" secondItem="NOA-Dm-cuz" secondAttribute="bottom" constant="16" id="f7q-iB-kyG"/>
-                            <constraint firstItem="VVe-Uw-JpX" firstAttribute="bottom" secondItem="8NU-n6-fmU" secondAttribute="bottom" constant="20" id="wWv-16-Ubc"/>
+                            <constraint firstItem="8NU-n6-fmU" firstAttribute="top" secondItem="NOA-Dm-cuz" secondAttribute="bottom" id="f7q-iB-kyG"/>
+                            <constraint firstItem="VVe-Uw-JpX" firstAttribute="bottom" secondItem="8NU-n6-fmU" secondAttribute="bottom" id="wWv-16-Ubc"/>
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="top" secondItem="VVe-Uw-JpX" secondAttribute="top" id="we0-1t-bgp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VVe-Uw-JpX"/>
@@ -51,8 +56,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
+                        <outlet property="backgroundView" destination="zMn-AG-sqS" id="5S2-Wg-lfU"/>
+                        <outlet property="navBar" destination="NOA-Dm-cuz" id="4dQ-f5-5lj"/>
                         <outlet property="textView" destination="8NU-n6-fmU" id="Jsm-kX-LZO"/>
-                        <outlet property="view" destination="zMn-AG-sqS" id="Qma-de-2ek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
