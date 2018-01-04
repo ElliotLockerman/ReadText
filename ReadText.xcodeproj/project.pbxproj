@@ -12,9 +12,43 @@
 		65094A8E1FFD890E0099B57C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65094A8C1FFD890E0099B57C /* Main.storyboard */; };
 		65094A901FFD890E0099B57C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65094A8F1FFD890E0099B57C /* Assets.xcassets */; };
 		65094A931FFD890E0099B57C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65094A911FFD890E0099B57C /* LaunchScreen.storyboard */; };
+		65094AA11FFD893A0099B57C /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65094AA01FFD893A0099B57C /* ActionViewController.swift */; };
+		65094AA41FFD893A0099B57C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65094AA21FFD893A0099B57C /* MainInterface.storyboard */; };
+		65094AA81FFD893A0099B57C /* ReadTextAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65094A9E1FFD89390099B57C /* ReadTextAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		65BF53E61FFDBE510028C3A3 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BF53E71FFDBE510028C3A3 /* Kanna.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		65BF53E91FFDC4C60028C3A3 /* Unwrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF53E81FFDC4C60028C3A3 /* Unwrapper.swift */; };
+		781ED93377C78B18E3885046 /* Pods_ReadText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BF53E11FFDBD4F0028C3A3 /* Pods_ReadText.framework */; };
+		AECB2A66E30F11E6B925301F /* Pods_ReadText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A531DA05940D80BE69A7C44 /* Pods_ReadText.framework */; };
+		DFDEED4E212F6652CD527719 /* Pods_ReadText_ReadTextAction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B40D74FDE64B5776BE62B02 /* Pods_ReadText_ReadTextAction.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		65094AA61FFD893A0099B57C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65094A7D1FFD890D0099B57C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65094A9D1FFD89390099B57C;
+			remoteInfo = ReadTextAction;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		65094AAC1FFD893A0099B57C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				65094AA81FFD893A0099B57C /* ReadTextAction.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3018BA95259BC1D6BF699CA9 /* Pods-ReadText-ReadTextAction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadText-ReadTextAction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadText-ReadTextAction/Pods-ReadText-ReadTextAction.debug.xcconfig"; sourceTree = "<group>"; };
+		4C0829479EDDB3513E5E6138 /* Pods-ReadText-ReadTextAction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadText-ReadTextAction.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadText-ReadTextAction/Pods-ReadText-ReadTextAction.release.xcconfig"; sourceTree = "<group>"; };
 		65094A851FFD890D0099B57C /* ReadText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65094A881FFD890D0099B57C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65094A8A1FFD890D0099B57C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +56,20 @@
 		65094A8F1FFD890E0099B57C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65094A921FFD890E0099B57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65094A941FFD890E0099B57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65094A9E1FFD89390099B57C /* ReadTextAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ReadTextAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		65094AA01FFD893A0099B57C /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		65094AA31FFD893A0099B57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		65094AA51FFD893A0099B57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65BF53DF1FFDBC7B0028C3A3 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65BF53E11FFDBD4F0028C3A3 /* Pods_ReadText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ReadText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65BF53E31FFDBD540028C3A3 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65BF53E51FFDBDA80028C3A3 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65BF53E71FFDBE510028C3A3 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65BF53E81FFDC4C60028C3A3 /* Unwrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwrapper.swift; sourceTree = "<group>"; };
+		7FC66DC5F3839A1EF16982F8 /* Pods-ReadText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadText.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadText/Pods-ReadText.debug.xcconfig"; sourceTree = "<group>"; };
+		9A531DA05940D80BE69A7C44 /* Pods_ReadText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReadText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B40D74FDE64B5776BE62B02 /* Pods_ReadText_ReadTextAction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReadText_ReadTextAction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7AD913CAB5EF31D6AA6C62E /* Pods-ReadText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadText.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadText/Pods-ReadText.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +77,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AECB2A66E30F11E6B925301F /* Pods_ReadText.framework in Frameworks */,
+				781ED93377C78B18E3885046 /* Pods_ReadText.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65094A9B1FFD89390099B57C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65BF53E61FFDBE510028C3A3 /* Kanna.framework in Frameworks */,
+				DFDEED4E212F6652CD527719 /* Pods_ReadText_ReadTextAction.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06270DE3ED16896DD903CA9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FC66DC5F3839A1EF16982F8 /* Pods-ReadText.debug.xcconfig */,
+				E7AD913CAB5EF31D6AA6C62E /* Pods-ReadText.release.xcconfig */,
+				3018BA95259BC1D6BF699CA9 /* Pods-ReadText-ReadTextAction.debug.xcconfig */,
+				4C0829479EDDB3513E5E6138 /* Pods-ReadText-ReadTextAction.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		65094A7C1FFD890D0099B57C = {
 			isa = PBXGroup;
 			children = (
 				65094A871FFD890D0099B57C /* ReadText */,
+				65094A9F1FFD893A0099B57C /* ReadTextAction */,
 				65094A861FFD890D0099B57C /* Products */,
+				06270DE3ED16896DD903CA9C /* Pods */,
+				FF1BB4E1E056972593B17F30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				65094A851FFD890D0099B57C /* ReadText.app */,
+				65094A9E1FFD89390099B57C /* ReadTextAction.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +138,31 @@
 			path = ReadText;
 			sourceTree = "<group>";
 		};
+		65094A9F1FFD893A0099B57C /* ReadTextAction */ = {
+			isa = PBXGroup;
+			children = (
+				65094AA01FFD893A0099B57C /* ActionViewController.swift */,
+				65BF53E81FFDC4C60028C3A3 /* Unwrapper.swift */,
+				65094AA21FFD893A0099B57C /* MainInterface.storyboard */,
+				65094AA51FFD893A0099B57C /* Info.plist */,
+			);
+			path = ReadTextAction;
+			sourceTree = "<group>";
+		};
+		FF1BB4E1E056972593B17F30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65BF53E71FFDBE510028C3A3 /* Kanna.framework */,
+				65BF53E51FFDBDA80028C3A3 /* Kanna.framework */,
+				65BF53E31FFDBD540028C3A3 /* Kanna.framework */,
+				65BF53E11FFDBD4F0028C3A3 /* Pods_ReadText.framework */,
+				65BF53DF1FFDBC7B0028C3A3 /* Kanna.framework */,
+				9A531DA05940D80BE69A7C44 /* Pods_ReadText.framework */,
+				9B40D74FDE64B5776BE62B02 /* Pods_ReadText_ReadTextAction.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,18 +170,42 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65094A971FFD890E0099B57C /* Build configuration list for PBXNativeTarget "ReadText" */;
 			buildPhases = (
+				2304BC00C79C458E335EBE98 /* [CP] Check Pods Manifest.lock */,
 				65094A811FFD890D0099B57C /* Sources */,
 				65094A821FFD890D0099B57C /* Frameworks */,
 				65094A831FFD890D0099B57C /* Resources */,
+				65094AAC1FFD893A0099B57C /* Embed App Extensions */,
+				DE56EE0EA711CE5C7A15504C /* [CP] Embed Pods Frameworks */,
+				3B6A3E409894B4A946A121D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				65094AA71FFD893A0099B57C /* PBXTargetDependency */,
 			);
 			name = ReadText;
 			productName = ReadText;
 			productReference = 65094A851FFD890D0099B57C /* ReadText.app */;
 			productType = "com.apple.product-type.application";
+		};
+		65094A9D1FFD89390099B57C /* ReadTextAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65094AA91FFD893A0099B57C /* Build configuration list for PBXNativeTarget "ReadTextAction" */;
+			buildPhases = (
+				C79D002F2B17629AFC73B3A3 /* [CP] Check Pods Manifest.lock */,
+				65094A9A1FFD89390099B57C /* Sources */,
+				65094A9B1FFD89390099B57C /* Frameworks */,
+				65094A9C1FFD89390099B57C /* Resources */,
+				B4BC92C9293CE26855FE3E28 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReadTextAction;
+			productName = ReadTextAction;
+			productReference = 65094A9E1FFD89390099B57C /* ReadTextAction.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +218,10 @@
 				ORGANIZATIONNAME = el;
 				TargetAttributes = {
 					65094A841FFD890D0099B57C = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					65094A9D1FFD89390099B57C = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -114,6 +241,7 @@
 			projectRoot = "";
 			targets = (
 				65094A841FFD890D0099B57C /* ReadText */,
+				65094A9D1FFD89390099B57C /* ReadTextAction */,
 			);
 		};
 /* End PBXProject section */
@@ -129,7 +257,93 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65094A9C1FFD89390099B57C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65094AA41FFD893A0099B57C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2304BC00C79C458E335EBE98 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3B6A3E409894B4A946A121D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadText/Pods-ReadText-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4BC92C9293CE26855FE3E28 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadText-ReadTextAction/Pods-ReadText-ReadTextAction-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C79D002F2B17629AFC73B3A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE56EE0EA711CE5C7A15504C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadText/Pods-ReadText-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65094A811FFD890D0099B57C /* Sources */ = {
@@ -141,7 +355,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65094A9A1FFD89390099B57C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65BF53E91FFDC4C60028C3A3 /* Unwrapper.swift in Sources */,
+				65094AA11FFD893A0099B57C /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65094AA71FFD893A0099B57C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65094A9D1FFD89390099B57C /* ReadTextAction */;
+			targetProxy = 65094AA61FFD893A0099B57C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		65094A8C1FFD890E0099B57C /* Main.storyboard */ = {
@@ -158,6 +389,14 @@
 				65094A921FFD890E0099B57C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		65094AA21FFD893A0099B57C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65094AA31FFD893A0099B57C /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -272,7 +511,9 @@
 		};
 		65094A981FFD890E0099B57C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FC66DC5F3839A1EF16982F8 /* Pods-ReadText.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
@@ -287,7 +528,9 @@
 		};
 		65094A991FFD890E0099B57C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7AD913CAB5EF31D6AA6C62E /* Pods-ReadText.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
@@ -295,6 +538,38 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.ReadText;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		65094AAA1FFD893A0099B57C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3018BA95259BC1D6BF699CA9 /* Pods-ReadText-ReadTextAction.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
+				INFOPLIST_FILE = ReadTextAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.ReadText.ReadTextAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65094AAB1FFD893A0099B57C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C0829479EDDB3513E5E6138 /* Pods-ReadText-ReadTextAction.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9E9BXKG4Q6;
+				INFOPLIST_FILE = ReadTextAction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliotlockerman.ReadText.ReadTextAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -317,6 +592,15 @@
 			buildConfigurations = (
 				65094A981FFD890E0099B57C /* Debug */,
 				65094A991FFD890E0099B57C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65094AA91FFD893A0099B57C /* Build configuration list for PBXNativeTarget "ReadTextAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65094AAA1FFD893A0099B57C /* Debug */,
+				65094AAB1FFD893A0099B57C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
