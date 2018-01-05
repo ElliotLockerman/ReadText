@@ -36,26 +36,57 @@ class ActionViewController: UIViewController {
         super.viewDidLoad()
     
         // Get the item[s] we're handling from the extension context.
-        var found = false
+        var providers = [String: NSItemProvider]()
+        
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! as! [NSItemProvider] {
                 if provider.hasItemConformingToTypeIdentifier("public.url") {
-                    provider.loadItem(forTypeIdentifier: "public.url", options: nil) { (url, _) in
-                        guard let url = url as? URL else {
-                            print("url wasn't a URL?!?")
-                            return
-                        }
-                        
-                        self.process(url: url)
-                        found = true
+                    if providers["public.url"] != nil {
+                        print("Got more than one url")
                     }
+                    providers["public.url"] = provider
+                } else if provider.hasItemConformingToTypeIdentifier("public.text") {
+                    if providers["public.text"] != nil {
+                        print("Got more than one text")
+                    }
+                    providers["public.text"] = provider
                 }
-            
-                if found { return }
             }
         }
+        
+        if providers.isEmpty {
+            print("No usable attachments")
+            return
+        }
+
+        print("\(providers)")
+        
+        if let provider = providers["public.text"] {
+            provider.loadItem(forTypeIdentifier: "public.text", options: nil) { (str, error) in
+                guard let str = str as? String else {
+                    print("error: \(error)")
+                    return
+                }
+                
+                self.process(text: str)
+            }
+        } else if let provider = providers["public.url"] {
+            provider.loadItem(forTypeIdentifier: "public.url", options: nil) { (url, error) in
+                 guard let url = url as? URL else {
+                     print("error: \(error)")
+                     return
+                 }
+             
+                 self.process(url: url)
+             }
+        }
+ 
     }
     
+    func process(text: String) {
+        let unwrapped = unwrap(text)
+        self.setText(unwrapped)
+    }
     
     func process(url: URL) {
         
@@ -89,8 +120,8 @@ class ActionViewController: UIViewController {
                 }
             }
                 
-            let unwrapper = unwrap(text)
-            self.setText(unwrapper)
+            let unwrapped = unwrap(text)
+            self.setText(unwrapped)
         }
 
         task.resume()
