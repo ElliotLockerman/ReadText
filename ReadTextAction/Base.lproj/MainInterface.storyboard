@@ -35,7 +35,7 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Loading..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8NU-n6-fmU">
-                                <rect key="frame" x="16" y="64" width="288" height="464"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="463"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -45,9 +45,9 @@
                         <constraints>
                             <constraint firstItem="VVe-Uw-JpX" firstAttribute="trailing" secondItem="NOA-Dm-cuz" secondAttribute="trailing" id="A05-Pj-hrr"/>
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="leading" secondItem="VVe-Uw-JpX" secondAttribute="leading" id="HxO-8t-aoh"/>
-                            <constraint firstItem="VVe-Uw-JpX" firstAttribute="trailing" secondItem="8NU-n6-fmU" secondAttribute="trailing" constant="16" id="ShP-8A-jxf"/>
-                            <constraint firstItem="8NU-n6-fmU" firstAttribute="leading" secondItem="VVe-Uw-JpX" secondAttribute="leading" constant="16" id="YLi-ai-SyH"/>
-                            <constraint firstItem="8NU-n6-fmU" firstAttribute="top" secondItem="NOA-Dm-cuz" secondAttribute="bottom" id="f7q-iB-kyG"/>
+                            <constraint firstItem="VVe-Uw-JpX" firstAttribute="trailing" secondItem="8NU-n6-fmU" secondAttribute="trailing" id="ShP-8A-jxf"/>
+                            <constraint firstItem="8NU-n6-fmU" firstAttribute="leading" secondItem="VVe-Uw-JpX" secondAttribute="leading" id="YLi-ai-SyH"/>
+                            <constraint firstItem="8NU-n6-fmU" firstAttribute="top" secondItem="NOA-Dm-cuz" secondAttribute="bottom" constant="1" id="f7q-iB-kyG"/>
                             <constraint firstItem="VVe-Uw-JpX" firstAttribute="bottom" secondItem="8NU-n6-fmU" secondAttribute="bottom" id="wWv-16-Ubc"/>
                             <constraint firstItem="NOA-Dm-cuz" firstAttribute="top" secondItem="VVe-Uw-JpX" secondAttribute="top" id="we0-1t-bgp"/>
                         </constraints>

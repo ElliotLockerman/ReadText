@@ -8,12 +8,25 @@
 
 import Foundation
 
+
+let header_reg = try! NSRegularExpression(pattern: "\\w+:", options: [])
+
+func isHeaderLine(_ str: String) -> Bool {
+    let count = header_reg.numberOfMatches(in: str, options: [], range:NSMakeRange(0, str.count))
+    return count > 0
+}
+
+
 func shouldJoin(_ first: String, _ second: String) -> Bool {
     if first == "" || second == "" {
         return false
     }
     
     if !NSCharacterSet.letters.contains(second.unicodeScalars.first!) {
+        return false
+    }
+    
+    if isHeaderLine(first) || isHeaderLine(second) {
         return false
     }
     
