@@ -44,7 +44,7 @@ func shouldJoin(_ first: String, _ second: String) -> Bool {
 
 
 
-class UnwrapperIterator: IteratorProtocol  {
+class UnwrapperIterator: IteratorProtocol, Sequence  {
 
     typealias Element = String
     
@@ -62,6 +62,7 @@ class UnwrapperIterator: IteratorProtocol  {
         it = lines.makeIterator()
         line = it.next()
     }
+    
     
     func next() -> String? {
         guard var currentLine = self.line else {
@@ -86,16 +87,13 @@ class UnwrapperIterator: IteratorProtocol  {
     
 }
 
-class Unwrapper: Sequence {
-    var input = ""
-    
-    init(_ input: String) {
-        self.input = input
+func unwrap(_ input: String) -> String {
+    var out = ""
+    for line in UnwrapperIterator(input)  {
+        out += line + "\n"
     }
     
-    func makeIterator() -> UnwrapperIterator {
-        return UnwrapperIterator(input)
-    }
+    return out
 }
 
 

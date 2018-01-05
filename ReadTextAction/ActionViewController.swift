@@ -12,6 +12,19 @@ import MobileCoreServices
 import Kanna
 
 
+func extractTextFrom(html: HTMLDocument) -> String {
+    let tags = html.css("pre")
+    
+    var text = ""
+    for tag in tags {
+        text += tag.text!
+    }
+    
+    return text
+}
+
+
+
 class ActionViewController: UIViewController {
 
     @IBOutlet var textView: UITextView!
@@ -28,57 +41,13 @@ class ActionViewController: UIViewController {
             for provider in item.attachments! as! [NSItemProvider] {
                 if provider.hasItemConformingToTypeIdentifier("public.url") {
                     provider.loadItem(forTypeIdentifier: "public.url", options: nil) { (url, _) in
-                        if let url = url as? URL {
-                            // do what you want to do with shareURL
-                            
-                            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                                guard let data = data, error == nil else {
-                                    print("\(String(describing: error))")
-                                    return
-                                }
-                                
-                                var html: HTMLDocument
-                                do {
-                                    try html = HTML(html: data, encoding: .utf8)
-                                } catch {
-                                    self.setText("Error parsing html")
-                                    return
-                                }
-                                let tags = html.css("pre")
-                                var any = false
-                                
-                                var text = ""
-                                for tag in tags {
-                                    text += tag.text!
-                                    any = true
-                                }
-                                
-                                if !any {
-                                    self.setText("No pre tags")
-                                    return
-                                }
-                                
-                                if text == "" {
-                                    self.setText("Pre tags were empty")
-                                    return
-
-                                }
-                                
-                                var unwrapped = ""
-                                let unwrapper = Unwrapper(text)
-                                for line in unwrapper {
-                                    unwrapped += line + "\n"
-                                }
-                                
-                                
-                                self.setText(unwrapped)
-                                
-                            }
-                            task.resume()
-                            
-                            found = true
+                        guard let url = url as? URL else {
+                            print("url wasn't a URL?!?")
+                            return
                         }
-                    
+                        
+                        self.process(url: url)
+                        found = true
                     }
                 }
             
@@ -86,6 +55,48 @@ class ActionViewController: UIViewController {
             }
         }
     }
+    
+    
+    func process(url: URL) {
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("\(String(describing: error))")
+                return
+            }
+            var text: String
+            if url.pathExtension == "txt" || url.pathExtension == "TXT" {
+                guard let tmp = String(data: data, encoding: String.Encoding.utf8) else {
+                    print("Error decoding text")
+                    return
+                }
+                text = tmp
+            } else {
+                var html: HTMLDocument
+                do {
+                    try html = HTML(html: data, encoding: .utf8)
+                } catch {
+                    print("Error processing url")
+                    return
+                }
+                
+                text = extractTextFrom(html: html)
+                
+                if text == "" {
+                    print("Pre tags were empty")
+                    return
+                    
+                }
+            }
+                
+            let unwrapper = unwrap(text)
+            self.setText(unwrapper)
+        }
+
+        task.resume()
+        
+    }
+    
 
     func setText(_ text: String) {
         DispatchQueue.main.async(execute: {
