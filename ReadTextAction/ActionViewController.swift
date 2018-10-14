@@ -45,11 +45,18 @@ class ActionViewController: UIViewController {
                         print("Got more than one url")
                     }
                     providers["public.url"] = provider
+                    
                 } else if provider.hasItemConformingToTypeIdentifier("public.text") {
                     if providers["public.text"] != nil {
                         print("Got more than one text")
                     }
                     providers["public.text"] = provider
+                    
+                } else if provider.hasItemConformingToTypeIdentifier("public.html") {
+                    if providers["public.html"] != nil {
+                        print("Got more than one html")
+                    }
+                    providers["public.html"] = provider
                 }
             }
         }
@@ -70,6 +77,15 @@ class ActionViewController: UIViewController {
                 
                 self.process(text: str)
             }
+        } else if let provider = providers["public.html"] {
+            provider.loadItem(forTypeIdentifier: "public.html", options: nil) { (html, error) in
+                guard let html = html as? String else {
+                    print("error: \(error)")
+                    return
+                }
+                
+                self.process(html: html)
+            }
         } else if let provider = providers["public.url"] {
             provider.loadItem(forTypeIdentifier: "public.url", options: nil) { (url, error) in
                  guard let url = url as? URL else {
@@ -80,7 +96,8 @@ class ActionViewController: UIViewController {
                  self.process(url: url)
              }
         }
- 
+        textView.textContainerInset = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+
     }
     
     func process(text: String) {
@@ -116,7 +133,6 @@ class ActionViewController: UIViewController {
                 if text == "" {
                     print("Pre tags were empty")
                     return
-                    
                 }
             }
                 
@@ -127,7 +143,21 @@ class ActionViewController: UIViewController {
         task.resume()
         
     }
-    
+
+    func process(html: String) {
+        let html = try! HTML(html: html, encoding: .utf8)
+        
+        let text = extractTextFrom(html: html)
+        
+        if text == "" {
+            print("Pre tags were empty")
+            return
+        }
+        
+        let unwrapped = unwrap(text)
+        self.setText(unwrapped)
+    }
+
 
     func setText(_ text: String) {
         DispatchQueue.main.async(execute: {
