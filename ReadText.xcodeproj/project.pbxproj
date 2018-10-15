@@ -17,6 +17,7 @@
 		65094AA81FFD893A0099B57C /* ReadTextAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 65094A9E1FFD89390099B57C /* ReadTextAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		65BF53E61FFDBE510028C3A3 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BF53E71FFDBE510028C3A3 /* Kanna.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		65BF53E91FFDC4C60028C3A3 /* Unwrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BF53E81FFDC4C60028C3A3 /* Unwrapper.swift */; };
+		65D6E2E92173F7A8003B3D22 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D6E2E82173F7A8003B3D22 /* OptionsController.swift */; };
 		781ED93377C78B18E3885046 /* Pods_ReadText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BF53E11FFDBD4F0028C3A3 /* Pods_ReadText.framework */; };
 		AECB2A66E30F11E6B925301F /* Pods_ReadText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A531DA05940D80BE69A7C44 /* Pods_ReadText.framework */; };
 		DFDEED4E212F6652CD527719 /* Pods_ReadText_ReadTextAction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B40D74FDE64B5776BE62B02 /* Pods_ReadText_ReadTextAction.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -66,6 +67,7 @@
 		65BF53E51FFDBDA80028C3A3 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BF53E71FFDBE510028C3A3 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BF53E81FFDC4C60028C3A3 /* Unwrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwrapper.swift; sourceTree = "<group>"; };
+		65D6E2E82173F7A8003B3D22 /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		7FC66DC5F3839A1EF16982F8 /* Pods-ReadText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadText.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadText/Pods-ReadText.debug.xcconfig"; sourceTree = "<group>"; };
 		9A531DA05940D80BE69A7C44 /* Pods_ReadText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReadText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B40D74FDE64B5776BE62B02 /* Pods_ReadText_ReadTextAction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReadText_ReadTextAction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				65094AA01FFD893A0099B57C /* ActionViewController.swift */,
+				65D6E2E82173F7A8003B3D22 /* OptionsController.swift */,
 				65BF53E81FFDC4C60028C3A3 /* Unwrapper.swift */,
 				65094AA21FFD893A0099B57C /* MainInterface.storyboard */,
 				65094AA51FFD893A0099B57C /* Info.plist */,
@@ -176,7 +179,6 @@
 				65094A831FFD890D0099B57C /* Resources */,
 				65094AAC1FFD893A0099B57C /* Embed App Extensions */,
 				DE56EE0EA711CE5C7A15504C /* [CP] Embed Pods Frameworks */,
-				3B6A3E409894B4A946A121D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,7 +198,6 @@
 				65094A9A1FFD89390099B57C /* Sources */,
 				65094A9B1FFD89390099B57C /* Frameworks */,
 				65094A9C1FFD89390099B57C /* Resources */,
-				B4BC92C9293CE26855FE3E28 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,43 +275,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReadText-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3B6A3E409894B4A946A121D5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadText/Pods-ReadText-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B4BC92C9293CE26855FE3E28 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadText-ReadTextAction/Pods-ReadText-ReadTextAction-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C79D002F2B17629AFC73B3A3 /* [CP] Check Pods Manifest.lock */ = {
@@ -319,13 +293,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReadText-ReadTextAction-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DE56EE0EA711CE5C7A15504C /* [CP] Embed Pods Frameworks */ = {
@@ -334,9 +311,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReadText/Pods-ReadText-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -360,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65BF53E91FFDC4C60028C3A3 /* Unwrapper.swift in Sources */,
+				65D6E2E92173F7A8003B3D22 /* OptionsController.swift in Sources */,
 				65094AA11FFD893A0099B57C /* ActionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

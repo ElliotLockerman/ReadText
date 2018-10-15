@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,9 +27,9 @@
                                                 <action selector="done" destination="ObA-dk-sSI" id="Qdu-qn-U6V"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Invert" id="2QI-EG-wXG">
+                                        <barButtonItem key="rightBarButtonItem" title="Options" id="UUv-Gn-Tan">
                                             <connections>
-                                                <action selector="invert:" destination="ObA-dk-sSI" id="EQ2-Tb-cGa"/>
+                                                <action selector="showOptions:" destination="ObA-dk-sSI" id="BFP-NR-h0E"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -58,12 +59,51 @@
                     <connections>
                         <outlet property="backgroundView" destination="zMn-AG-sqS" id="5S2-Wg-lfU"/>
                         <outlet property="navBar" destination="NOA-Dm-cuz" id="4dQ-f5-5lj"/>
+                        <outlet property="optionsButton" destination="UUv-Gn-Tan" id="GTy-nQ-3eh"/>
                         <outlet property="textView" destination="8NU-n6-fmU" id="Jsm-kX-LZO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116.8" y="118.74062968515743"/>
+        </scene>
+        <!--Options Controller-->
+        <scene sceneID="lnZ-7g-TYG">
+            <objects>
+                <viewController storyboardIdentifier="optionsPopover" id="ZoN-vW-2aM" customClass="OptionsController" customModule="ReadTextAction" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="awn-dw-Sw8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pld-QC-Qd4">
+                                <rect key="frame" x="41" y="101" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Az-yM-7lA">
+                                <rect key="frame" x="285" y="91" width="51" height="31"/>
+                                <connections>
+                                    <action selector="invert:" destination="ZoN-vW-2aM" eventType="valueChanged" id="DRH-ED-m6X"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pld-QC-Qd4" firstAttribute="bottom" secondItem="5Az-yM-7lA" secondAttribute="bottom" id="2TA-bt-IRU"/>
+                            <constraint firstItem="pld-QC-Qd4" firstAttribute="leading" secondItem="Gsm-K7-fbL" secondAttribute="leading" constant="41" id="TbS-ih-M3e"/>
+                            <constraint firstItem="Gsm-K7-fbL" firstAttribute="trailing" secondItem="5Az-yM-7lA" secondAttribute="trailing" constant="41" id="UIV-ub-K88"/>
+                            <constraint firstItem="pld-QC-Qd4" firstAttribute="top" secondItem="Gsm-K7-fbL" secondAttribute="top" constant="81" id="sTQ-VW-eF5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gsm-K7-fbL"/>
+                    </view>
+                    <connections>
+                        <outlet property="invertSwitch" destination="5Az-yM-7lA" id="S3L-te-NIs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTx-Th-A01" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="155"/>
         </scene>
     </scenes>
 </document>
