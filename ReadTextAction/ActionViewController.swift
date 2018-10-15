@@ -204,13 +204,24 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
                     self.textView.backgroundColor = UIColor.black
                     self.backgroundView.backgroundColor = UIColor.black
                     self.navBar.barTintColor = self.navDark
+                    
                 } else {
                     self.textView.textColor = UIColor.darkText
                     self.textView.backgroundColor = UIColor.white
                     self.backgroundView.backgroundColor = UIColor.white
                     self.navBar.barTintColor = self.navLight
                 }
+                self.setNeedsStatusBarAppearanceUpdate()
             })
+        }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if isDark {
+            return .lightContent
+        } else {
+            return .default
+            
         }
     }
 
