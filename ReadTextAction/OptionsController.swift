@@ -12,6 +12,7 @@ class OptionsController : UIViewController {
     
     var parentView: ActionViewController?
     @IBOutlet var invertSwitch: UISwitch!
+    @IBOutlet var marginStepper: UIStepper!
     
     func setParentView(_ _parentView: ActionViewController) {
         parentView = _parentView;
@@ -20,12 +21,20 @@ class OptionsController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         invertSwitch.isOn = parentView!.dark
+        marginStepper.stepValue = 10
+        marginStepper.value = parentView!.insetWidth.native
+        marginStepper.maximumValue = 200
+        marginStepper.minimumValue = 5
     }
     
     @IBAction func invert(_ sender: UISwitch) {
         parentView!.dark = sender.isOn;
     }
     
+    
+    @IBAction func margins(_ stepper: UIStepper) {
+        parentView?.insetWidth = CGFloat(stepper.value)
+    }
 }
 
 

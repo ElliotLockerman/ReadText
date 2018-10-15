@@ -32,18 +32,27 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet var navBar: UINavigationBar!
     @IBOutlet var optionsButton: UIBarButtonItem!
     var isDark = false
-
+    var theInsetWidth: CGFloat = 25;
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         let defaults = UserDefaults.standard
+        
         if let wasDark = defaults.object(forKey: "dark") {
             dark = wasDark as! Bool
         } else {
             dark = false
             defaults.set(false, forKey: "dark")
+        }
+        
+        if let tmpInsetWidth = defaults.object(forKey: "insetWidth") {
+            theInsetWidth = tmpInsetWidth as! CGFloat
+        } else if UIDevice.current.userInterfaceIdiom == .pad {
+            theInsetWidth = 50
+        } else {
+            theInsetWidth = 0
         }
         
         // Get the item[s] we're handling from the extension context.
@@ -107,7 +116,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
                  self.process(url: url)
              }
         }
-        textView.textContainerInset = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+        textView.textContainerInset = UIEdgeInsets(top: 25, left: theInsetWidth, bottom: 50, right: theInsetWidth)
 
     }
     
@@ -205,7 +214,16 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         }
     }
 
-    
+    var insetWidth: CGFloat {
+        get {
+            return theInsetWidth
+        }
+        
+        set {
+            theInsetWidth = newValue
+            textView.textContainerInset = UIEdgeInsets(top: 25, left: theInsetWidth, bottom: 50, right: theInsetWidth)
+        }
+    }
     
     @IBAction func showOptions(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MainInterface", bundle: nil);
@@ -235,7 +253,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
     @IBAction func done() {
         let defaults = UserDefaults.standard
         defaults.set(dark, forKey: "dark")
-
+        defaults.set(theInsetWidth, forKey: "insetWidth")
         
         // Return any edited content to the host app.
         // This template doesn't do anything, so we just echo the passed in items.
