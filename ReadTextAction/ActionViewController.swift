@@ -24,6 +24,10 @@ func extractTextFrom(html: HTMLDocument) -> String {
 }
 
 
+let DARK_KEY = "dark_key"
+let INSET_KEY = "inset_key"
+let FONT_SIZE_KEY = "font_size_key"
+
 
 class ActionViewController: UIViewController, UIPopoverPresentationControllerDelegate, UIAdaptivePresentationControllerDelegate {
 
@@ -33,26 +37,31 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet var optionsButton: UIBarButtonItem!
     var isDark = false
     var theInsetWidth: CGFloat = 25;
-
+    var theFontSize: CGFloat = 14;
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         let defaults = UserDefaults.standard
         
-        if let wasDark = defaults.object(forKey: "dark") {
+        if let wasDark = defaults.object(forKey: DARK_KEY) {
             dark = wasDark as! Bool
         } else {
             dark = false
-            defaults.set(false, forKey: "dark")
         }
         
-        if let tmpInsetWidth = defaults.object(forKey: "insetWidth") {
-            theInsetWidth = tmpInsetWidth as! CGFloat
+        if let tmpInsetWidth = defaults.object(forKey: INSET_KEY) {
+            insetWidth = tmpInsetWidth as! CGFloat
         } else if UIDevice.current.userInterfaceIdiom == .pad {
-            theInsetWidth = 50
+            insetWidth = 50
         } else {
-            theInsetWidth = 0
+            insetWidth = 0
+        }
+        
+        if let tmpFontSize = defaults.object(forKey: FONT_SIZE_KEY) {
+            fontSize = tmpFontSize as! CGFloat
+        } else {
+            fontSize = 14;
         }
         
         // Get the item[s] we're handling from the extension context.
@@ -216,6 +225,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         }
     }
     
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if isDark {
             return .lightContent
@@ -235,6 +245,19 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
             textView.textContainerInset = UIEdgeInsets(top: 25, left: theInsetWidth, bottom: 50, right: theInsetWidth)
         }
     }
+    
+    
+    var fontSize: CGFloat {
+        get {
+            return theFontSize;
+        }
+        
+        set {
+            theFontSize = newValue;
+            textView.font = UIFont.systemFont(ofSize: theFontSize);
+        }
+    }
+
     
     @IBAction func showOptions(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MainInterface", bundle: nil);
@@ -263,9 +286,10 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
 
     @IBAction func done() {
         let defaults = UserDefaults.standard
-        defaults.set(dark, forKey: "dark")
-        defaults.set(theInsetWidth, forKey: "insetWidth")
-        
+        defaults.set(dark, forKey: DARK_KEY)
+        defaults.set(insetWidth, forKey: INSET_KEY)
+        defaults.set(fontSize, forKey: FONT_SIZE_KEY)
+
         // Return any edited content to the host app.
         // This template doesn't do anything, so we just echo the passed in items.
         // TODO: pass back the unwrapped text
