@@ -36,8 +36,10 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
     @IBOutlet var navBar: UINavigationBar!
     @IBOutlet var optionsButton: UIBarButtonItem!
     var isDark = false
-    var theInsetWidth: CGFloat = 25;
-    var theFontSize: CGFloat = 14;
+    var theInsetWidth: CGFloat = 25
+    var theFontSize: CGFloat = 14
+    
+    var unwrapped: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +63,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         if let tmpFontSize = defaults.object(forKey: FONT_SIZE_KEY) {
             fontSize = tmpFontSize as! CGFloat
         } else {
-            fontSize = 14;
+            fontSize = 14
         }
         
         // Get the item[s] we're handling from the extension context.
@@ -125,7 +127,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
                  self.process(url: url)
              }
         }
-        textView.textContainerInset = UIEdgeInsets(top: 25, left: theInsetWidth, bottom: 50, right: theInsetWidth)
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: theInsetWidth, bottom: 50, right: theInsetWidth)
 
     }
     
@@ -134,8 +136,8 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
     
     
     func process(text: String) {
-        let unwrapped = unwrap(text)
-        self.setText(unwrapped)
+        unwrapped = unwrap(text)
+        self.setText(unwrapped!)
     }
     
     func process(url: URL) {
@@ -169,8 +171,8 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
                 }
             }
                 
-            let unwrapped = unwrap(text)
-            self.setText(unwrapped)
+            self.unwrapped = unwrap(text)
+            self.setText(self.unwrapped!)
         }
 
         task.resume()
@@ -194,7 +196,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
 
     func setText(_ text: String) {
         DispatchQueue.main.async(execute: {
-            self.textView.text = text;
+            self.textView.text = text
         })
     }
 
@@ -202,7 +204,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
     let navLight = UIColor(red: (247/255), green: (247/255), blue: (247/255), alpha: 1)
     var dark: Bool {
         get {
-            return isDark;
+            return isDark
         }
         
         set {
@@ -249,20 +251,20 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
     
     var fontSize: CGFloat {
         get {
-            return theFontSize;
+            return theFontSize
         }
         
         set {
-            theFontSize = newValue;
-            textView.font = UIFont.systemFont(ofSize: theFontSize);
+            theFontSize = newValue
+            textView.font = UIFont.systemFont(ofSize: theFontSize)
         }
     }
 
     
     @IBAction func showOptions(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MainInterface", bundle: nil);
+        let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
         let optionsVC = storyboard.instantiateViewController(withIdentifier: "optionsPopover")
-        (optionsVC as! OptionsController).setParentView(self);
+        (optionsVC as! OptionsController).setParentView(self)
         optionsVC.modalPresentationStyle = .popover
         optionsVC.popoverPresentationController?.barButtonItem = optionsButton
         optionsVC.presentationController!.delegate = self
@@ -276,7 +278,6 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         
     }
     
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -284,15 +285,24 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         print("didReceiveMemoryWarning() called")
     }
 
+    
     @IBAction func done() {
         let defaults = UserDefaults.standard
         defaults.set(dark, forKey: DARK_KEY)
         defaults.set(insetWidth, forKey: INSET_KEY)
         defaults.set(fontSize, forKey: FONT_SIZE_KEY)
 
-        // Return any edited content to the host app.
-        // This template doesn't do anything, so we just echo the passed in items.
-        // TODO: pass back the unwrapped text
+        /*
+        if let unwrapped = unwrapped {
+            let provider = NSItemProvider(item: unwrapped as NSSecureCoding, typeIdentifier: "public.text")
+            let item = NSExtensionItem()
+            item.attachments = [provider]
+            print("Returning data")
+            return self.extensionContext!.completeRequest(returningItems: [item], completionHandler: nil)
+        } else {
+            self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
+        }
+        */
         self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
     }
 

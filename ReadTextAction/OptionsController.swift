@@ -16,7 +16,7 @@ class OptionsController : UIViewController {
     @IBOutlet var fontStepper: UIStepper!
     
     func setParentView(_ _parentView: ActionViewController) {
-        parentView = _parentView;
+        parentView = _parentView
     }
     
     override func viewDidLoad() {
@@ -30,12 +30,12 @@ class OptionsController : UIViewController {
         
         fontStepper.stepValue = 0.5;
         fontStepper.value = parentView!.fontSize.native;
-        fontStepper.maximumValue = 18;
-        fontStepper.minimumValue = 8;
+        fontStepper.maximumValue = 18
+        fontStepper.minimumValue = 8
     }
     
     @IBAction func invert(_ sender: UISwitch) {
-        parentView!.dark = sender.isOn;
+        parentView!.dark = sender.isOn
     }
     
     
@@ -44,7 +44,7 @@ class OptionsController : UIViewController {
     }
     
     @IBAction func fontSize(_ sender: UIStepper) {
-        parentView?.fontSize = CGFloat(sender.value);
+        parentView?.fontSize = CGFloat(sender.value)
     }
     
 }

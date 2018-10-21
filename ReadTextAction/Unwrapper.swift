@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+// Based on https://github.com/gbenison/Line-unwrap
 let header_reg = try! NSRegularExpression(pattern: "\\w+:", options: [])
 
 func isHeaderLine(_ str: String) -> Bool {
