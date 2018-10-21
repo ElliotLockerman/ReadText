@@ -93,7 +93,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         }
         
         if providers.isEmpty {
-            print("No usable attachments")
+            self.setText("Error: No usable attachments")
             return
         }
 
@@ -102,7 +102,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         if let provider = providers["public.text"] {
             provider.loadItem(forTypeIdentifier: "public.text", options: nil) { (str, error) in
                 guard let str = str as? String else {
-                    print("error: \(error ??  "couldn't get url" as! Error)")
+                    self.setText("Error: \(error ??  "couldn't get url" as! Error)")
                     return
                 }
                 
@@ -111,7 +111,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         } else if let provider = providers["public.html"] {
             provider.loadItem(forTypeIdentifier: "public.html", options: nil) { (html, error) in
                 guard let html = html as? String else {
-                    print("error: \(error ??  "couldn't get url" as! Error)")
+                    self.setText("Error: \(error ??  "couldn't get url" as! Error)")
                     return
                 }
                 
@@ -120,7 +120,7 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         } else if let provider = providers["public.url"] {
             provider.loadItem(forTypeIdentifier: "public.url", options: nil) { (url, error) in
                  guard let url = url as? URL else {
-                    print("error: \(error ?? "couldn't get url" as! Error)")
+                    self.setText("Error: \(error ?? "couldn't get url" as! Error)")
                      return
                  }
              
@@ -144,13 +144,13 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
-                print("\(String(describing: error))")
+                print("Error: \(String(describing: error))")
                 return
             }
             var text: String
             if url.pathExtension == "txt" || url.pathExtension == "TXT" {
                 guard let tmp = String(data: data, encoding: String.Encoding.utf8) else {
-                    print("Error decoding text")
+                    self.setText("Error decoding text")
                     return
                 }
                 text = tmp
@@ -159,14 +159,14 @@ class ActionViewController: UIViewController, UIPopoverPresentationControllerDel
                 do {
                     try html = HTML(html: data, encoding: .utf8)
                 } catch {
-                    print("Error processing url")
+                    self.setText("Error processing url")
                     return
                 }
                 
                 text = extractTextFrom(html: html)
                 
                 if text == "" {
-                    print("Pre tags were empty")
+                    self.setText("Error: no <pre> tags, or <pre> tags were empty")
                     return
                 }
             }
