@@ -18,17 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Share Extension" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysk-OC-PFo">
-                                <rect key="frame" x="109" y="110" width="157.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the Action Extension on a website with &lt;pre&gt; tags or a text file." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysk-OC-PFo">
+                                <rect key="frame" x="23" y="110" width="332" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5bn-fj-jef"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="For more information and our privacy policy, please visit http://elliot.lockerman.info/projects/readtext" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NZf-RK-BEK">
+                                <rect key="frame" x="23" y="431" width="332" height="75"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="bqP-ex-8qw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ysk-OC-PFo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CkT-cB-3Ce"/>
+                            <constraint firstItem="ysk-OC-PFo" firstAttribute="trailing" secondItem="NZf-RK-BEK" secondAttribute="trailing" id="GDO-a5-NrB"/>
+                            <constraint firstItem="ysk-OC-PFo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="b75-oZ-4wK"/>
+                            <constraint firstItem="NZf-RK-BEK" firstAttribute="top" secondItem="ysk-OC-PFo" secondAttribute="bottom" constant="300" id="eVt-ZF-XRh"/>
+                            <constraint firstItem="ysk-OC-PFo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="foN-2C-DS4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NZf-RK-BEK" secondAttribute="trailing" constant="20" id="kiU-Wy-YIY"/>
                             <constraint firstItem="ysk-OC-PFo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="lxp-Xc-AVF"/>
+                            <constraint firstItem="ysk-OC-PFo" firstAttribute="leading" secondItem="NZf-RK-BEK" secondAttribute="leading" id="mXS-Hi-sfN"/>
+                            <constraint firstItem="NZf-RK-BEK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="teu-cb-pkU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
